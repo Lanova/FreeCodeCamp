@@ -1,0 +1,10 @@
+function sumsq(array) {
+ return array.reduce(function(a, b){
+        return a + b*b;
+    }, 0);
+     
+}
+console.log(sumsq([25, 32, 12, 7, 20]))
+
+// Rosetta Code: Sum of squares
+// Write a function to find the sum of squares of an array of integers.

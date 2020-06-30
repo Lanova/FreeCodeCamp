@@ -1,0 +1,13 @@
+function lastFriday(year, month) {
+  for (let i = 31; i > 21; i--) {
+    let today = new Date(year, month - 1, i);
+    if (today.getDay() == 5 && today.getMonth() == month - 1) {
+      return i;
+    }
+  }
+}
+
+lastFriday(2017, 2)
+
+// Rosetta Code: Last Friday of each month
+// Write a function that returns the date of the last Friday of a given month for a given year.

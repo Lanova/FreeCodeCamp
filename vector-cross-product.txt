@@ -1,0 +1,16 @@
+function crossProduct(a, b) {
+    let crossProd = [];
+    if (!Array.isArray(a) || !Array.isArray(b)) {
+        return null;
+    }
+    else {
+        let x = a[1] * b[2] - a[2] * b[1];
+        let y = a[2] * b[0] - a[0] * b[2];
+        let z = a[0] * b[1] - a[1] * b[0];
+        crossProd.push(x, y, x)
+    }
+    return crossProd;
+}
+
+//The Cross Product a × b of two vectors is another vector that is at right angles to both:
+// https://www.mathsisfun.com/algebra/vectors-cross-product.html

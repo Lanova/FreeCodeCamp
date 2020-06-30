@@ -1,0 +1,13 @@
+function arrToObj (keys, vals) {
+  var map = {};
+  keys.forEach((key, index)=> {
+    map[key] = vals[index];
+  });
+  return map;
+}
+
+// Rosetta Code: Hash from two arrays
+// Using two Arrays of equal length, create a Hash object where the elements from one array (the keys) are linked to the elements of the other (the values).
+
+
+

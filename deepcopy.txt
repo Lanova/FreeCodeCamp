@@ -1,0 +1,14 @@
+function deepcopy(obj) {
+  if (obj === null || typeof obj !== 'object') {
+      return obj;
+    } 
+  // give temporary-storage the original obj's constructor
+  var temp = obj.constructor(); 
+    for (var key in obj) {
+      temp[key] = deepcopy(obj[key]);
+    }
+    return temp;
+
+}
+//Deep Copy
+

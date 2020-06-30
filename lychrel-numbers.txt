@@ -1,0 +1,26 @@
+function isLychrel(n) {
+
+  for (let i = 1; i <= 500; i++) {
+    n = n + reverseNum(n) // 33 = 12 + 21
+    if (isPalindrome(n)) { //if it's palidrome it, it's not Lychrel num, return false and fall out of the loop
+      return false;
+    }
+  }
+  return true;// if during 500 iteration no palidroms accures, that is the Lychrel number
+}
+
+//to reverse the num turn it into the string amd back to num
+function reverseNum(n) {
+  return parseInt(n.toString().split('').reverse().join(''));
+}
+
+//check if it's a Palindrom
+function isPalindrome(n) {
+  return n.toString() === n.toString().split('').reverse().join('');
+};
+
+console.log(isLychrel(12));
+
+// Rosetta Code: Lychrel numbers
+// https://rosettacode.org/wiki/Lychrel_numbers
+

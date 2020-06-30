@@ -1,0 +1,21 @@
+function standardDeviation(arr) {
+  // find average 
+  let sum = arr.reduce((previous, current) => current += previous);
+  let avg = sum / arr.length;
+  let sumDs = 0; 
+   //calculate the deviations of each data point from the mean, and square the result of each
+  //store in array
+  for( let i = 0; i<arr.length; i++){
+    let daviation = arr[i] - avg;
+    let sqDaviation = daviation*daviation 
+    sumDs += sqDaviation;
+  }
+    //use these numbs sum/arr.length to The variance is the mean of these values:
+  let varience = sumDs / arr.length;
+  let num = Math.sqrt(varience)
+  return Math.round(num*1000)/1000;
+ //return a square root of the variance
+
+}
+
+

@@ -1,0 +1,15 @@
+function iteratedSquare(n) {
+  while (n != 1 && n != 89) {
+    let total = 0;
+    while (n > 0) {
+      let digit = n % 10;
+      n = (n - digit) / 10;
+      total += digit * digit;
+      console.log(total)
+    }
+    n = total;
+  }
+  return n;
+}
+
+console.log(iteratedSquare(7));

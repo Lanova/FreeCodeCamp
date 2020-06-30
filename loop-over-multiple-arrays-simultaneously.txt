@@ -1,0 +1,33 @@
+function loopSimult(A) {
+  let result = []; 
+  for (let extrnal = 0; extrnal < A[0].length; extrnal++) { // to have second index 
+  //A[0].lengt to not loop more than internal pices exist
+    var newStr = "";
+    for (let internal = 0; internal < A.length; internal++) { // to have first index
+      newStr += A[internal][extrnal]
+    }
+    result.push(newStr)
+  }
+  console.log(result)
+  return result;
+}
+
+loopSimult([["a", "b"], ["A", "B"], [1, 2]]);
+
+// //
+// freeCodeCamp.org
+// /news
+// /forum
+// /learn
+// Rosetta Code: Loop over multiple arrays simultaneously
+// Loop over multiple arrays and create a new array whose  ith  element is the concatenation of  ith  element of each of the given.
+
+// For this example, if you are given this array of arrays:
+
+// [ ["a", "b", "c"], ["A", "B", "C"], [1, 2, 3] ]
+
+// the output should be:
+
+// ["aA1","bB2","cC3"]
+
+// Write a function that takes an array of arrays as a parameter and returns an array of strings satisfying the given description.

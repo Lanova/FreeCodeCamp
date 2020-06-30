@@ -1,0 +1,41 @@
+function updateInventory(arr1, arr2) {
+  let m = new Map();
+ 
+  arr1.forEach((v) => {
+    m.set(v[1], v[0]);
+  }) 
+
+  arr2.forEach((v) => {
+    if (m.has(v[1])){
+      m.set(v[1], m.get(v[1])+v[0])
+    } else {
+      m.set(v[1], v[0]);
+    }
+  }) 
+
+  let arr = new Array();
+  for (let [key, value] of m) {
+    arr.push([value, key])
+    // console.log(arr)
+  }
+
+  return arr.sort((a,b)=>(a[1] < b[1]) ? -1 : 1);
+}
+
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+updateInventory(curInv, newInv);

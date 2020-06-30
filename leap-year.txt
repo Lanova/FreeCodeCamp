@@ -1,0 +1,11 @@
+function isLeapYear(year) {
+  let testYear = new Date(year, 1, 29);//  the month count startst from 0, so 1- February
+  if (testYear.getMonth() == 1) {
+    return true;
+  }
+  else return false;
+}
+isLeapYear(2018)
+
+// Rosetta Code: Leap year
+// Determine whether a given year is a leap year in the Gregorian calendar.

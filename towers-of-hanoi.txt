@@ -1,0 +1,11 @@
+function towerOfHanoi(n, a, b, c) {
+   if (n <= 0) { //base case
+      return [] // creat empty array
+   }
+   else if (n > 0) {
+      return [...towerOfHanoi(n - 1, a, c, b), [a, b], ...towerOfHanoi(n - 1, c, b, a)]
+   }
+// call recursively and concat result
+}
+
+

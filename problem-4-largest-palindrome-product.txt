@@ -1,0 +1,39 @@
+function largestPalindromeProduct(n) {
+  var startPoint, endPoint = 0;
+  var x, y, product, max = 0;
+  if (n == 2) { // 
+    endPoint = 10; //smallest 2 digits num
+    startPoint = 99; //bigest 2 dgits num
+  }
+  else {
+    endPoint = 100; //smallest 3 digits num
+    startPoint = 999;//bigest 3 digits num
+  }
+
+  for (x = startPoint; x >= endPoint; x--) {
+    for (y = x; y >= endPoint; y--) {
+      product = x * y; //99*99 start
+      if (isPalidrom(product)) { 
+        if (max < product) { // check if the polidrom is the biggest
+          max = product;
+        }
+      }
+    }
+  }
+  return max;
+}
+
+function isPalidrom(n) { //palidrom
+  const nStr = n.toString(); //number to str
+  const reversedStr = nStr.split('').reverse().join('');//reverse
+  return reversedStr == nStr; //compere
+}
+
+console.log(
+largestPalindromeProduct(2) )
+
+
+// Project Euler: Problem 4: Largest palindrome product
+// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+// Find the largest palindrome made from the product of two n-digit numbers.

@@ -1,0 +1,27 @@
+function letterFrequency(txt) {
+  let result = [];
+  let charMap = new Map(); //create a hash_table empty
+
+  for (let c of txt) { ///ES6 loop through each character in string 
+    if (charMap.has(c)) { //check if this character exist as a key in hash_table
+      charMap.set(c, charMap.get(c) + 1); // increse value+1 for record by the key (c)
+    } else {
+      charMap.set(c, 1) // if there is no such key in a table , set character as a key and value to 1
+    }
+  }
+   for (let [key, value] of charMap) { // make a two demantion array from table
+   result.push([key,value]);
+  }
+
+ return result.sort(); // return and sort the resuld 2d Array
+ 
+}
+
+letterFrequency("Not all that Mrs. Bennet, however")
+
+
+
+// Rosetta Code: Letter frequency
+// Given a string, calculate the frequency of each character.
+
+// All characters should be counted. This includes lower and upper case letters, digits, whitespace, special characters, or any other distinct characters +sorted

@@ -1,0 +1,22 @@
+function idMatrix(n) {
+    let arr = [];
+    let result = [];
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (i === j) arr.push(1);
+            else arr.push(0);
+        }
+    }
+    for (let i = 0; i < n; i++) {
+       let newA =  arr.splice(0, n);
+        result.push(newA);
+    }
+    return result;
+}
+console.log(idMatrix(3))
+
+// Rosetta Code: Identity matrix
+// An identity matrix is a square matrix of size  n×n , where the diagonal elements are all 1s (ones), and all the other elements are all 0s (zeroes).
+
+// In=⎡⎣⎢100010001⎤⎦⎥ 
+// Write a function that takes a number n as a parameter and returns the identity matrix of order  n×n .

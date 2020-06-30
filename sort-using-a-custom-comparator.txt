@@ -1,0 +1,9 @@
+function lengthSorter(arr) {
+return arr.sort((a,b)=> (a.length>b.length ? -1 : (a.length==b.length ? (a.localeCompare(b)) : 1))); 
+
+}
+console.log(
+lengthSorter(["Here", "are", "some", "sample", "strings", "to", "be", "sorted"]))
+
+// // Rosetta Code: Sort using a custom comparator
+// Write a function to sort an array (or list) of strings in order of descending length, and in ascending lexicographic order for strings of equal length.

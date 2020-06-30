@@ -1,0 +1,14 @@
+function jortsort(array) {
+  // Good luck!
+  for(let i= 0; i<array.length; i++){
+    if(array[i]>array[i+1]){
+     return false;
+    }
+  }
+  return true;
+}
+
+console.log(jortsort([1,2,13,4,5]))
+
+// Rosetta Code: JortSort
+// jortSort is a sorting toolset that makes the user do the work and guarantees efficiency because you don't have to sort ever again. It was originally presented by Jenn "Moneydollars" Schiffer at the prestigious JSConf.

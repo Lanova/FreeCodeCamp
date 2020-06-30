@@ -1,0 +1,46 @@
+function hailstoneSequence() {
+  //find longest hailstone sequence 
+  let firstPart = seqNum(27);
+  let first = firstPart.slice(0, 4);
+  let second = firstPart.slice(firstPart.length - 4, firstPart.length)
+
+  for (var n, max = 0, i = 100000; --i;) {
+    var seq = seqNum(i), sLen = seq.length;
+    if (sLen > max) {
+      n = i;
+      max = sLen;
+    }
+  }
+
+  return [[...first, ...second], [max, n]];
+}
+
+//first part return seq arr
+function seqNum(num) {
+  var seq = [num];
+  while (num > 1) {
+    let check = num % 2;
+    if (check == 0) {
+      num = num / 2;
+      seq.push(num);
+    } else {
+      num = (num * 3) + 1;
+      seq.push(num);
+    }
+  }
+  return seq;
+}
+console.log(hailstoneSequence())
+
+
+// Rosetta Code: Hailstone sequence
+// The Hailstone sequence of numbers can be generated from a starting positive integer, n by:
+
+// If n is 1 then the sequence ends
+// If n is even then the next n of the sequence = n/2
+// If n is odd then the next n of the sequence = (3 * n) + 1
+// The (unproven) Collatz conjecture is that the hailstone sequence for any starting number always terminates.
+
+// The hailstone sequence is also known as hailstone numbers (because the values are usually subject to multiple descents and ascents like hailstones in a cloud), or as the Collatz sequence.
+
+

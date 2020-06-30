@@ -1,0 +1,18 @@
+function longestString(strings) {
+var result = [];
+var longest = Math.max(...(strings.map(el => el.length)));
+// detect the longest string in the array 
+for(var i=0; i < strings.length; i++){
+    if(strings[i].length >= longest){ // compare if str is >= then max
+      result.push(strings[i]) // push into result if matches longest
+    }      
+} 
+return result;
+}
+
+console.log(longestString(["a", "bb", "ccc", "ee", "f", "ggg"]))
+
+// Rosetta Code: Longest string challenge
+// In this challenge, you have to find the strings that are the longest among the given strings.
+
+// Write a function that takes an array of strings and returns the strings that have a length equal to the longest length.

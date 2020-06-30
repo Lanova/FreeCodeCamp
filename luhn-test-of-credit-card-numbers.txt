@@ -1,0 +1,40 @@
+function luhnTest(str) {
+  let s1 = 0;
+  let s2 = 0;
+  let reverseArr = [...str].reverse().map(Number); //split string into array, reverse and turn into number arr
+
+  for (let i = 0; i < reverseArr.length; i += 2) {
+    s1 += reverseArr[i]; //sum every 1, 3 , 5.. odd numbers
+  }
+
+  for (let i = 1; i < reverseArr.length; i += 2) {
+    let multip = reverseArr[i] * 2;
+    if (multip > 9) { //if number is from 2 digits
+     let digit = multip % 10;//digit = 6
+      multip = (multip - digit) / 10;// multip = 1
+       s2 += multip + digit;
+    }
+    else { // just one digit <=9
+      s2 += multip;
+    }
+  }
+  if ((s1 + s2) % 10 == 0) { //if can be devided by 10 - it ends with 0
+    return true;
+  }
+  else return false;
+}
+
+console.log(luhnTest("49927398716"));
+
+
+// Rosetta Code: Luhn test of credit card numbers
+// The Luhn test is used by some credit card companies to distinguish valid credit card numbers from what could be a random selection of digits.
+
+// Those companies using credit card numbers that can be validated by the Luhn test have numbers that pass the following test:
+
+// Reverse the order of the digits in the number.
+// Take the first, third, ... and every other odd digit in the reversed digits and sum them to form the partial sum s1
+// Taking the second, fourth ... and every other even digit in the reversed digits:
+// Multiply each digit by two and sum the digits if the answer is greater than nine to form partial sums for the even digits.
+// Sum the partial sums of the even digits to form s2.
+// If s1 + s2 ends in zero then the original number is in the form of a valid credit card number as verified by the Luhn test.

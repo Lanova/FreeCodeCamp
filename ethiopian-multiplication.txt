@@ -1,0 +1,38 @@
+function eth_mult(a, b) {
+  let halveArr = halve(a);
+  let doubleArr = double(b);
+  let updatedDoubleArr = even(halveArr, doubleArr);
+  let sum = updatedDoubleArr.reduce((previous, current) => current += previous);
+
+  function halve(a) {
+    let leftArr = [];
+    while (a >= 1) {
+      leftArr.push(a);
+      a = Math.floor(a / 2);
+    }
+    return leftArr;
+  }
+
+  function double(b) {
+    let righArr = [];
+    while (righArr.length < halveArr.length) {
+      righArr.push(b);
+      b = Math.floor(b * 2);
+    }
+    return righArr;
+  }
+
+  function even(halveArr, doubleArr) {
+    for (let i = 0; i < halveArr.length; i++) {
+      if (halveArr[i] % 2 == 0) {
+        doubleArr[i] = 0;
+      }
+    }
+    return doubleArr;
+  }
+  return sum;
+}
+
+// console.log(eth_mult(17, 34))
+// Rosetta Code: Ethiopian multiplication
+// Ethiopian multiplication is a method of multiplying integers using only addition, doubling, and halving.

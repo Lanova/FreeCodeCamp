@@ -1,0 +1,9 @@
+function factorial(n) {
+  if(n<0)return false;
+  else if(n == 1) return 1;
+  else{
+    return n*factorial(n-1);
+  }
+}
+// Rosetta Code: Factorial
+// Write a function to return the factorial of a number.

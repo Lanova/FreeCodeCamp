@@ -1,0 +1,30 @@
+function getDPA(n) {
+let deficient = 0, perfect = 0, abundant = 0;
+
+  for(let num=1; num<=n; num++){
+
+  let sum = sumCalc(num);
+  if (sum == num){
+      perfect++;
+    }
+    else if (sum > num){
+      abundant++;
+    }
+  else{
+    deficient++;
+  }
+  function sumCalc(num){
+    let sum = 0;
+    for (let i = 1; i <= num/2; i++) {
+          if (num % i == 0) {
+              sum += i;
+          }
+      }
+      return sum;
+  }
+  }
+ return [deficient, perfect, abundant];
+
+}
+
+console.log(getDPA(20000))

@@ -1,0 +1,29 @@
+function mode(arr) {
+  const counter = {};
+  let modeArray = [];
+  let max = 0;
+  let unique = [...new Set(arr)];
+  if(arr == null || arr.length == 0)
+    return false;
+  else ( arr != unique)
+  {
+   arr.forEach(el => {
+    if (!(el in counter)) {
+      counter[el] = 0;
+    }
+    counter[el]++;
+
+    if (counter[el] === max) {
+      modeArray.push(el);
+    }
+    else if (counter[el] > max) {
+      max = counter[el];
+      modeArray = [el];
+    }
+  });
+  }
+return modeArray;
+ 
+}
+
+

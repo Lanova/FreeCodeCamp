@@ -1,0 +1,22 @@
+function factors(num) {
+  let resultArr = [];
+  var result = num;
+
+  if(num<1)return false;
+  else if(num == 1) resultArr.push(1);
+  else{
+    for(let i = num; i!=0; i--){
+      let dec = num/i;
+      if(Number.isInteger(dec)){
+        resultArr.push(dec)
+       }
+    }
+  }
+  return resultArr;
+}
+
+console.log(factors(64))
+// //Rosetta Code: Factors of an integer
+// Write a function that returns the factors of a positive integer as an array.
+
+// These factors are the positive integers by which the number being factored can be divided to yield a positive integer result.

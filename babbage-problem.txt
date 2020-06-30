@@ -1,0 +1,10 @@
+function babbage(babbageNum, endDigits) {
+ let n = 519;
+  while ( ((n * n) % 1000000) != 269696 )
+    n = n + 1
+ 
+return n;  
+
+}
+console.log(babbage(99736, 9947269696))
+

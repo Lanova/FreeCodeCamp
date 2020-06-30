@@ -1,0 +1,20 @@
+function sedol(input) {
+  let vowels = input.match(/[aeiou]/gi); //the vowals are not allowed in SEDOLs
+  if (vowels != null || input.length != 6) return null; //check if input length = 6 
+  return input + checkSum(input); //concat last check num to input str
+}
+
+function checkSum(input) {
+  let weight = [1, 3, 1, 7, 3, 9, 1];
+  let sum = 0;
+  for (var i = 0; i < input.length; i++) {
+    sum += weight[i] * parseInt(input.charAt(i), 36);//multiply each num or char by weight and sum them up
+  }
+  let checkNum = (10 - sum % 10) % 10; //formula to checkNum
+  return checkNum.toString();
+}
+
+console.log(sedol('228276'));
+
+// Rosetta Code: SEDOLs
+// https://en.wikipedia.org/wiki/SEDOL

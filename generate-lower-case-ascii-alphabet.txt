@@ -1,0 +1,14 @@
+function lascii(cFrom, cTo) {
+  let start = cFrom.charCodeAt();
+  let end = cTo.charCodeAt();
+  var resultArr = [];
+  for (let i = start; i <= end; i++) {
+    let letter = String.fromCharCode(i);
+    resultArr.push(letter);
+  }
+  return resultArr;
+}
+console.log(lascii("a", "d"))
+
+// Rosetta Code: Generate lower case ASCII alphabet
+// Write a function to generate an array of lower case ASCII characters for a given range. For example, given the range ['a', 'd'], the function should return ['a', 'b', 'c', 'd']

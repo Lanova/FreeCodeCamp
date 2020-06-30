@@ -1,0 +1,20 @@
+function largestPrimeFactor(n) {
+  var i = 2; // smallest prime number
+  while (i <= n) { //when i smaller than upodated n -- stop
+      if (n % i == 0) { //check if can be devided without left (modulo)
+      n /= i; //devide by this number
+    }
+    else {
+      i++; //increse one
+    }
+  }
+
+  return i; //the nuber return when by devition n/i =1
+}
+
+largestPrimeFactor(13195) 
+
+// Project Euler: Problem 3: Largest prime factor (https://www.mathsisfun.com/definitions/prime-factor.html#:~:text=A%20factor%20that%20is%20a,Prime%20Factorization)
+// The prime factors of 13195 are 5, 7, 13 and 29.
+
+// What is the largest prime factor of the given number?

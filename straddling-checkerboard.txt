@@ -1,0 +1,51 @@
+function straddle(message, alphabet) {//coding
+  let resultStr = '';
+  let prefixes = new Array(alphabet[0].indexOf(" "), alphabet[0].lastIndexOf(" ")) //used as row indicators
+  let cleanUp = message.replace(/[^a-zA-Z0-9.]/g, "").toUpperCase(); // to leave msg only with alphanum and dot
+
+  for (let c of cleanUp) { ///ES6 loop through each character in string 
+    if (alphabet[0].indexOf(c) != -1) { //if character matching the first row
+      resultStr += alphabet[0].indexOf(c); // return index of this char in a key row
+    }
+    else if (alphabet[1].indexOf(c) != -1) { //if character matching the second row
+      resultStr += prefixes[0].toString() + alphabet[1].indexOf(c);// add first prefix and  index of this char in a key row
+    }
+    else if (alphabet[2].indexOf(c) != -1) {//if character matching the third row
+      resultStr += prefixes[1].toString() + alphabet[2].indexOf(c);// add second prefix and  index of this char in a key row
+    }
+    else { // if it's a number
+      resultStr += prefixes[1].toString() + alphabet[2].indexOf('/') + c; // add second prefix and  index of '/' to ignore num and num
+          }
+  }
+  return resultStr;
+}
+
+function unstraddle(message, alphabet) {//decoding
+  let resultStr = '';
+  let prefixes = new Array(alphabet[0].indexOf(" "), alphabet[0].lastIndexOf(" "))  //used as row indicators (prefix 1, prefix 2)
+  for (let i = 0; i < message.length - 1; i++) {
+    if (message[i] == prefixes[1] && message[i + 1] == alphabet[2].indexOf('/')) { // when it matches second  prefix and "/" // for NUMBERS
+      resultStr += message[i + 2]; // return just num after 2 number(prefix and /)
+      i = i + 2 // to skip two number and start from the number we are now
+    }
+    else if (message[i] == prefixes[0]) { // matches prefix one
+      resultStr += alphabet[1][message[i + 1]] // go to the second row and by the given index find a char, i+1 skipping the prefix
+      i++
+    }
+    else if (message[i] == prefixes[1]) {// matches prefix two
+      resultStr += alphabet[2][message[i + 1]] // go to the third row and by the given index find a char , i+1 skipping the prefix
+      i++
+    }
+    else {// no prefixes
+      resultStr += alphabet[0][message[i]]  // go to the first row and take char
+    }
+  }
+  return resultStr;
+}
+
+
+unstraddle("34045747525284613427502840425027537379697175891898898898584619028294547488", ["ESTONIA  R", "BCDFGHJKLM", "PQUVWXYZ./"])
+straddle("One night-it was on the twentieth of March, 1888-I was returning.",["ESTONIA R", "BCDFGHJKLM", "PQUVWXYZ./"])
+
+// Rosetta Code: Straddling checkerboard
+// https://en.wikipedia.org/wiki/Straddling_checkerboard

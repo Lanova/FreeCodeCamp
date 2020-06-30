@@ -1,0 +1,19 @@
+function sternBrocot(num) {
+    var arrSternBrocot = [1, 1];
+    for (let i = 1; i < arrSternBrocot.length; i++) {
+      let sum = arrSternBrocot[i] + arrSternBrocot[i - 1]; 
+      if (sum == num) { // check if the sum (new element that about to add in arr)  = given num
+       return arrSternBrocot.length+1; // return the arr length+1 as a place where it would be inserted
+      }
+      else { // != num
+        arrSternBrocot.push(sum); // add sum to arr as new element
+        arrSternBrocot.push(arrSternBrocot[i]) // add after sum consideret member
+      }
+    }
+    
+}
+
+console.log(sternBrocot(10))
+
+// Rosetta Code: Stern-Brocot sequence 
+// https://www.geeksforgeeks.org/stern-brocot-sequence/

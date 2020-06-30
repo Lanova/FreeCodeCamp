@@ -1,0 +1,31 @@
+function split(str) {
+  let strArr =[...str]; //made array, split by one character
+  let result = [];
+
+  for (let i = 0; i < strArr.length; i++) {
+    if(strArr[i] == strArr[i + 1]){ //if the cuurent element the same as next
+    let temp = strArr[i]; //set temp value
+    while (strArr[i] == strArr[i + 1]) { //while the element the same
+     temp += strArr[i]; //keep adding
+      i++;
+    }
+     result.push(temp) // accumulater result add to the result arr
+  }
+    else if(strArr[i] != strArr[i + 1]) { // if not the same
+      result.push(strArr[i]) //add to the result
+    }
+
+
+  }
+  console.log(result)
+  return result;
+}
+split("sssmmmaaammmaaat");
+
+// Rosetta Code: Split a character string based on change of character
+// Split a (character) string into comma (plus a blank) delimited strings based on a change of character (left to right). Blanks should be treated as any other character (except they are problematic to display clearly). The same applies to commas. For instance, the string:
+
+// "gHHH5YY++///\"
+// should be split as:
+
+// ["g", "HHH", "5", "YY", "++", "///", "\" ];

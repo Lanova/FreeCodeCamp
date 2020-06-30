@@ -1,0 +1,12 @@
+function findXmasSunday(start, end) {
+  var resultArr = [];
+  for(let year = start; year<=end; year++){
+    let d = new Date("12,25,"+year)
+    if(d.getDay() == 0){
+      resultArr.push(d.getFullYear());
+    }
+  }
+
+  return resultArr;
+}
+console.log(findXmasSunday(2008,2121));

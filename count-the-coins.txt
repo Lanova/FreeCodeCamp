@@ -1,0 +1,38 @@
+function countCoins() {
+  var  types = [25,10, 5, 1];
+  var change = 100;
+  var count = 0;
+  
+  function calc(a,b){
+    if(a === change)
+      count++;
+    else if(a<change){
+      for(let i = 0; i< types.length; i++){
+        if (i >= b) {
+            calc(types[i] + a, i);
+        }
+      }
+    }
+  }
+  calc(0,0);
+ return count;
+}
+console.log(countCoins())
+
+// Rosetta Code: Count the coins
+// There are four types of common coins in US currency:
+
+// quarters (25 cents)
+// dimes (10 cents)
+// nickels (5 cents), and
+// pennies (1 cent)
+// There are six ways to make change for 15 cents:
+
+// A dime and a nickel
+// A dime and 5 pennies
+// 3 nickels
+// 2 nickels and 5 pennies
+// A nickel and 10 pennies
+// 15 pennies
+// Implement a function to determine how many ways there are to make change for a dollar using these common coins (1 dollar = 100 cents)
+

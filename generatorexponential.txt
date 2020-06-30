@@ -1,0 +1,20 @@
+function exponentialGenerator(n) {
+  let newArr = [];
+  
+for(let i = 2; newArr.length <n; i++){
+ if (Math.cbrt(i*i)%1 == 0){
+   continue;
+ }
+  newArr.push(i*i);
+}
+ return newArr[n-1];
+}
+
+console.log(exponentialGenerator(25))
+
+// Rosetta Code: Generator/Exponential
+// Write a function that uses generators to generate squares and cubes. Create a new generator that filters all cubes from the generator of squares.
+
+// The function should return the  nth  value of the filtered generator.
+
+// For example for  n=7 , the function should return 81 as the sequence would be 4, 9, 16, 25, 36, 49, 81. Here 64 is filtered out, as it is a cube.

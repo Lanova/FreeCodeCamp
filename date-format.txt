@@ -1,0 +1,11 @@
+function getDateFormats() {
+  let result = [];
+  let today = new Date();
+  var firstDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var prnDt = new Date().toLocaleString([],{  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+   result.push(firstDate,prnDt);
+  return result;
+
+}
+
+console.log(getDateFormats())

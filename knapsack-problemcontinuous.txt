@@ -1,0 +1,29 @@
+function knapContinuous(items, maxweight) {
+  let sum = 0;
+  let value = 0;
+  let count = 0;
+  var myObject = new Object(items);
+
+  for (let i = 0; i < myObject.length; i++) {
+    myObject[i]["perUnit"] = (myObject[i].value / myObject[i].weight);
+  }
+
+  myObject.sort((a, b) => b.perUnit - a.perUnit);
+  for (let i = 0; i < myObject.length && sum < maxweight - myObject[i].weight; i++) {
+    sum += myObject[i].weight;
+    value += myObject[i].value;
+    count++;
+  }
+  if (sum < maxweight) {
+    let left = maxweight - sum;
+    value += myObject[count].perUnit * left;
+  }
+  return value;
+}
+
+knapContinuous([{ "weight": 3.8, "value": 36, name: "beef" }, { "weight": 5.4, "value": 43, name: "pork" }, { "weight": 3.6, "value": 90, name: "ham" }, { "weight": 2.4, "value": 45, name: "greaves" }, { "weight": 4.0, "value": 30, name: "flitch" }, { "weight": 2.5, "value": 56, name: "brawn" }, { "weight": 3.7, "value": 67, name: "welt" }, { "weight": 3.0, "value": 95, name: "salami" }, { "weight": 5.9, "value": 98, name: "sausage" }], 22)
+
+// Rosetta Code: Knapsack problem/Continuous
+// A thief burgles a butcher's shop, where he can select from some items.
+
+// The thief knows the weights and prices of each items. Because he has a knapsack with a limit on the maximum weight that it can carry, he wants to select the items such that he would have his profit maximized. He may cut the items; the item has a reduced price after cutting that is proportional to the original price by the ratio of masses. That means: half of an item has half the price of the original.
